@@ -1,0 +1,53 @@
+body {
+    text-align: center;
+}
+
+h1, h2 {
+    font-family: Garamond, serif;
+}
+
+code { 
+font-family: Consolas, "Courier New", monospace;
+background-color: #DDDDDD;
+}
+
+.codeblock {
+    width: 60vw;
+    text-align: left;
+
+    margin: auto;
+    padding: 2em;
+
+    font-family: Consolas, "Courier New", monospace;
+    background-color: #DDDDDD;
+}
+
+.flex-container {
+    display: flex;
+    width: 70vw;
+    min-height: 20vw;
+    margin: auto;
+    padding: 2em;
+    background-color: #BBBBFF;
+    align-items: flex-start;
+}
+
+.flex-item {
+    background-color: #CCCCCC;
+    max-width: 20%;
+    margin: 1em;
+    padding: 1em;
+    font-size: 2em;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.justify-content {
+    justify-content: center;
+}
+
+.align-items {
+    align-items: center;
+}

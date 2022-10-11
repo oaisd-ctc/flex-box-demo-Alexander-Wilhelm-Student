@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>it is real flexbox hours</title>
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+
+    <body>
+        <h1>how to flexbox like a real gamer</h1>
+        <h2>hi kids today we are going to learn to flexbox and ascend to the coveted status of amateur web developer</h2>
+
+        firstly, we need to make a <strong>flex container</strong> to do flexbox things with. thankfully, that's easy.
+        <p>use css to give an element the property and value of <code>display: flex;</code>. <br>
+        preferably, you would do this to a <code>&lt;div&gt;</code>, but lots of other things work too.</p>
+            <br>
+            example:
+
+        <div class="codeblock">
+            .flex-container {<br>
+            display: flex;<br>
+            width: 70vw;<br>
+        <br>
+            margin: auto;<br>
+            padding: 2em;<br>
+            background-color: #BBBBFF;<br>
+        }</div>
+
+        <br>
+        here is a div with this fancy new container class. <br>
+        <br>
+
+        <div class="flex-container"></div><br>
+
+        you may notice there's nothing different, and that's because we haven't put anything in it yet.<br>
+        in fact, even if we <em>do</em> put something in it, nothing seems to be special about it.<br>
+        <br>
+        <div class="flex-container">boo! this is boring!</div><br>
+        believe it or not, it <em>is</em> working behind the scenes. first, let's make a special class to demonstrate the power of flex.
+
+        <div class="codeblock">
+            .flex-item {<br>
+                background-color: #CCCCCC;<br>
+                max-width: 20%;<br>
+                max-height: 1em;<br>
+                margin: 1em;<br>
+                padding: 1em;<br>
+                font-size: 2em;<br>
+            }<br>
+            <br>
+            &lt;div class="flex-container"&gt;<br>
+            &lt;div class="flex-item"&gt;flex item 1&lt;/div&gt;<br>
+            &lt;div class="flex-item"&gt;flex item 2&lt;/div&gt;<br>
+            &lt;div class="flex-item"&gt;flex item 3&lt;/div&gt;<br>
+            &lt;/div&gt;<br>
+        </div>
+        <br>
+        <div class="flex-container">
+            <div class="flex-item">flex item 1</div>
+            <div class="flex-item">flex item 2</div>
+            <div class="flex-item">flex item 3</div>
+        </div><br>
+        <br>
+        <p>okay, that makes them look nicer, but you can do this with regular divs and tables. what's so special here?<br>
+        try <strong>resizing your browser window</strong> to see how the flex items interact.<br></p>
+        <br>
+        <p>the flex items grow and shrink to fit the container. neat, but there's a couple problems with this.<br>
+        for instance, if you shrink the container too much, the items will spill outside! that doesn't look too good. they're also aligned to the left of the box, which might not be very desirable.<br>
+        fortunately, this is where the main draw of flex comes into play. flexboxes makes it easy to design website layouts, without having to resort to floating, positioning, or other techniques that don't scale super well across devices.<br>
+        flexboxes excel in <strong>liquid, responsive design</strong>, which is an essential consideration for modern web development.</p>
+        <br>
+        <hr>
+        <br>
+        <h2>FLEX CONTAINER PROPERTIES</h2>
+        <p>let's adjust our css to rectify the problems proposed earlier.<br>
+        first up is <code>flex-wrap</code>, which defines how to handle flex items exiting the container.<br>
+        by default, <code>flex-wrap</code> is set to <code>nowrap</code>. let's change that.</p>
+        <br>
+        <div class="codeblock">
+            .flex-container {<br>
+                display: flex;<br>
+                width: 70vw;<br>
+                min-height: 20vw;<br>
+                margin: auto;<br>
+                padding: 2em;<br>
+                background-color: #BBBBFF;<br>
+                <br>
+                <strong>flex-wrap: wrap;</strong><br>
+            }
+        </div>
+        <br>
+        (<code>flex-wrap</code> also supports the value <code>wrap-reverse</code>, which puts the wrapped items above the others as opposed to below)<br>
+        <br>
+        <div class="flex-container flex-wrap">
+            <div class="flex-item">flex item 1</div>
+            <div class="flex-item">flex item 2</div>
+            <div class="flex-item">flex item 3</div>
+        </div><br>
+        <br>
+        <p>now, when the container is too small to fit the whole row, the container will grow and the items will wrap around to fit. good stuff.<br>
+        let's try tackling that item alignment using <code>justify-content</code>. by default, this is set to <code>flex-start</code>. let's change it to <code>center</code> and see what happens.<p>
+        <br>
+        <div class="codeblock">
+            .flex-container {<br>
+                display: flex;<br>
+                width: 70vw;<br>
+                min-height: 20vw;<br>
+                margin: auto;<br>
+                padding: 2em;<br>
+                background-color: #BBBBFF;<br>
+                flex-wrap: wrap;<br>
+                <br>
+                <strong>justify-content: center;</strong><br>
+            }
+        </div>
+        <br>
+        (other values for <code>justify-content</code> not demonstrated: <code>flex-end</code>, <code>space-around</code>, <code>space-between</code>)<br>
+        <br>
+        <div class="flex-container flex-wrap justify-content">
+            <div class="flex-item">flex item 1</div>
+            <div class="flex-item">flex item 2</div>
+            <div class="flex-item">flex item 3</div>
+        </div><br>
+
+        <p>nice and centered. beautiful. but only horizontally. what if we want them to be centered vertically as well, because we're insane?<br>
+        have no fear! we also have <code>align-items</code> at our disposal. by default, this is set to <code>stretch</code>, which stretches out the items to fit the container, like so:</p>
+        (you may have noticed that the earlier demonstrations don't act like this. i've secretly been hiding a <code>align-items: flex-start;</code> property from you this whole time, which prevents the content from stretching, like you see here.)<br>
+        <br>
+        <div class="flex-container flex-wrap justify-content" style="align-items: stretch;">
+            <div class="flex-item" style="max-height: 100vw;">flex item 1</div>
+            <div class="flex-item" style="max-height: 100vw;">flex item 2</div>
+            <div class="flex-item" style="max-height: 100vw;">flex item 3</div>
+        </div><br>
+
+        <p>this doesn't look great, which is why we have a <code>max-height</code> property for the <code>flex-item</code>s on the above demonstrations.<br>
+        however, we can also set it to <code>flex-start</code>, <code>flex-end</code>, or for our purposes, <code>center</code>.</p><br>
+
+        <div class="codeblock">
+            .flex-container {<br>
+                display: flex;<br>
+                width: 70vw;<br>
+                min-height: 20vw;<br>
+                margin: auto;<br>
+                padding: 2em;<br>
+                background-color: #BBBBFF;<br>
+                flex-wrap: wrap;<br>
+                justify-content: center;<br>
+                <br>
+                <strong>align-items: center;</strong><br>
+            }
+        </div><br>
+        <br>
+        <div class="flex-container flex-wrap justify-content align-items">
+            <div class="flex-item" style="max-height: 100vw;">flex item 1</div>
+            <div class="flex-item" style="max-height: 100vw;">flex item 2</div>
+            <div class="flex-item" style="max-height: 100vw;">flex item 3</div>
+        </div><br>
+        <p>behold! easy vertical alignment, while still being responsive and liquid in nature! bask in its glory! <em>this</em> is how you center a div.</p>
+        <br>
+        <hr>
+        <br>
+        <h2>FLEX ITEM PROPERTIES</h2>
+        let's play around a little with the items themselves, as opposed to their container.<br>
+        <br>
+        <p>the <code>order</code> property allows you to change the order that the flex items appear in.<br>
+        by default, this is just the order that they are listed inside the HTML file, but this property outprioritizes that.</p><br>
+
+        <div class="codeblock">
+            &lt;div class="flex-container"&gt;<br>
+            &lt;div class="flex-item"&gt;flex item 1&lt;/div&gt;<br>
+            &lt;div class="flex-item" style="order: 3;"&gt;flex item 2&lt;/div&gt;<br>
+            &lt;div class="flex-item"&gt;flex item 3&lt;/div&gt;<br>
+            &lt;/div&gt;<br>
+        </div><br>
+        
+        <div class="flex-container flex-wrap justify-content align-items">
+            <div class="flex-item">flex item 1</div>
+            <div class="flex-item" style="order: 3;">flex item 2</div>
+            <div class="flex-item">flex item 3</div>
+        </div><br>
+        
+        (note: not every element in the container needs this property in order to work!)<br>
+
+
+
+     </body>
+</html>
