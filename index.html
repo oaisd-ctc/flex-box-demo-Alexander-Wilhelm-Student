@@ -37,6 +37,7 @@
         <br>
         <div class="flex-container">boo! this is boring!</div><br>
         believe it or not, it <em>is</em> working behind the scenes. first, let's make a special class to demonstrate the power of flex.<br>
+        most developers create a generic <strong>flex item</strong> class, which they can then build upon later.<br>
         <br>
         <div class="codeblock">
             .flex-item {<br>
@@ -47,7 +48,7 @@
                 font-size: 1.5em;<br>
             }<br>
             <br>
-            &lt;div class="flex-container"&gt;<br>
+            &lt;div class="flex-container"&gt;<br>  <!-- it's disgusting but it will have to do -->
             &lt;div class="flex-item"&gt;flex item 1&lt;/div&gt;<br>
             &lt;div class="flex-item"&gt;flex item 2&lt;/div&gt;<br>
             &lt;div class="flex-item"&gt;flex item 3&lt;/div&gt;<br>
@@ -167,7 +168,7 @@
 
         <div class="codeblock">
             &lt;div class="flex-container"&gt;<br>
-            &lt;div class="flex-item"&gt;flex item 1&lt;/div&gt;<br> <!-- it's disgusting but it will have to do -->
+            &lt;div class="flex-item"&gt;flex item 1&lt;/div&gt;<br>
             &lt;div class="flex-item" style="order: 3;"&gt;flex item 2&lt;/div&gt;<br>
             &lt;div class="flex-item"&gt;flex item 3&lt;/div&gt;<br>
             &lt;/div&gt;<br>
@@ -217,7 +218,7 @@
             <div class="flex-item" style="align-self: stretch;">flex item 3</div>
         </div><br>
         <br>
-        now your layouts can be even more visually confusing and inconsistent! hooray!
+        now your layouts can be even more confusing and inconsistent! hooray!
         <br>
         <br>
         <hr>
