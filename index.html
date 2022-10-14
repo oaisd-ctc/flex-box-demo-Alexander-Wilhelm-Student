@@ -13,7 +13,7 @@
         firstly, we need to make a <strong>flex container</strong> to do flexbox things with. thankfully, that's easy.
         <p>use css to give an element the property and value of <code>display: flex;</code>. <br>
         preferably, you would do this to a <code>&lt;div&gt;</code>, but lots of other things work too.</p>
-            <br>
+            <br> <!-- i am aware that my excessive usage of <br> is hideous and i regret to inform you that i am too lazy to fix it -->
             example:
 
         <div class="codeblock">
@@ -36,16 +36,15 @@
         in fact, even if we <em>do</em> put something in it, nothing seems to be special about it.<br>
         <br>
         <div class="flex-container">boo! this is boring!</div><br>
-        believe it or not, it <em>is</em> working behind the scenes. first, let's make a special class to demonstrate the power of flex.
-
+        believe it or not, it <em>is</em> working behind the scenes. first, let's make a special class to demonstrate the power of flex.<br>
+        <br>
         <div class="codeblock">
             .flex-item {<br>
                 background-color: #CCCCCC;<br>
-                max-width: 20%;<br>
                 max-height: 1em;<br>
                 margin: 1em;<br>
                 padding: 1em;<br>
-                font-size: 2em;<br>
+                font-size: 1.5em;<br>
             }<br>
             <br>
             &lt;div class="flex-container"&gt;<br>
@@ -64,9 +63,10 @@
         <p>okay, that makes them look nicer, but you can do this with regular divs and tables. what's so special here?<br>
         try <strong>resizing your browser window</strong> to see how the flex items interact.<br></p>
         <br>
-        <p>the flex items grow and shrink to fit the container. neat, but there's a couple problems with this.<br>
-        for instance, if you shrink the container too much, the items will spill outside! that doesn't look too good. they're also aligned to the left of the box, which might not be very desirable.<br>
-        fortunately, this is where the main draw of flex comes into play. flexboxes makes it easy to design website layouts, without having to resort to floating, positioning, or other techniques that don't scale super well across devices.<br>
+        <p>the flex items grow and shrink to fit the container. neat, but there's a couple problems with this.
+        for instance, if you shrink the container too much, the items will spill outside! that doesn't look too good. they're also aligned to the left of the box, which might not be very desirable.</p>
+
+        <p>fortunately, this is where the main draw of flex comes into play. flexboxes makes it easy to design website layouts, without having to resort to floating, positioning, or other techniques that don't scale super well across devices. 
         flexboxes excel in <strong>liquid, responsive design</strong>, which is an essential consideration for modern web development.</p>
         <br>
         <hr>
@@ -77,10 +77,10 @@
         by default, <code>flex-wrap</code> is set to <code>nowrap</code>. let's change that.</p>
         <br>
         <div class="codeblock">
-            .flex-container {<br>
+            .flex-container {<br> <!-- that's right we're gonna LIE TO THEM to make MY LIFE EASIER! MUAHAHAHAHAHA!!!!!!!!!!!!!! -->
                 display: flex;<br>
                 width: 70vw;<br>
-                min-height: 20vw;<br>
+                min-height: 40vh;<br>
                 margin: auto;<br>
                 padding: 2em;<br>
                 background-color: #BBBBFF;<br>
@@ -104,7 +104,7 @@
             .flex-container {<br>
                 display: flex;<br>
                 width: 70vw;<br>
-                min-height: 20vw;<br>
+                min-height: 40vh;<br>
                 margin: auto;<br>
                 padding: 2em;<br>
                 background-color: #BBBBFF;<br>
@@ -124,22 +124,22 @@
 
         <p>nice and centered. beautiful. but only horizontally. what if we want them to be centered vertically as well, because we're insane?<br>
         have no fear! we also have <code>align-items</code> at our disposal. by default, this is set to <code>stretch</code>, which stretches out the items to fit the container, like so:</p>
-        (you may have noticed that the earlier demonstrations don't act like this. i've secretly been hiding a <code>align-items: flex-start;</code> property from you this whole time, which prevents the content from stretching, like you see here.)<br>
+        (you may have noticed that the earlier demonstrations don't act like this. i've secretly been hiding an <code>align-items: flex-start;</code> property from you this whole time, which prevents the content from stretching, like you see here.)<br>
         <br>
         <div class="flex-container flex-wrap justify-content" style="align-items: stretch;">
-            <div class="flex-item" style="max-height: 100vw;">flex item 1</div>
-            <div class="flex-item" style="max-height: 100vw;">flex item 2</div>
-            <div class="flex-item" style="max-height: 100vw;">flex item 3</div>
+            <div class="flex-item">flex item 1</div>
+            <div class="flex-item">flex item 2</div>
+            <div class="flex-item">flex item 3</div>
         </div><br>
 
-        <p>this doesn't look great, which is why we have a <code>max-height</code> property for the <code>flex-item</code>s on the above demonstrations.<br>
+        <p>this doesn't look great, which is why we have an <code>align-items: flex-start;</code> property on the above demonstrations.<br>
         however, we can also set it to <code>flex-start</code>, <code>flex-end</code>, or for our purposes, <code>center</code>.</p><br>
 
         <div class="codeblock">
             .flex-container {<br>
                 display: flex;<br>
                 width: 70vw;<br>
-                min-height: 20vw;<br>
+                min-height: 40vh;<br>
                 margin: auto;<br>
                 padding: 2em;<br>
                 background-color: #BBBBFF;<br>
@@ -151,9 +151,9 @@
         </div><br>
         <br>
         <div class="flex-container flex-wrap justify-content align-items">
-            <div class="flex-item" style="max-height: 100vw;">flex item 1</div>
-            <div class="flex-item" style="max-height: 100vw;">flex item 2</div>
-            <div class="flex-item" style="max-height: 100vw;">flex item 3</div>
+            <div class="flex-item">flex item 1</div>
+            <div class="flex-item">flex item 2</div>
+            <div class="flex-item">flex item 3</div>
         </div><br>
         <p>behold! easy vertical alignment, while still being responsive and liquid in nature! bask in its glory! <em>this</em> is how you center a div.</p>
         <br>
@@ -167,7 +167,7 @@
 
         <div class="codeblock">
             &lt;div class="flex-container"&gt;<br>
-            &lt;div class="flex-item"&gt;flex item 1&lt;/div&gt;<br>
+            &lt;div class="flex-item"&gt;flex item 1&lt;/div&gt;<br> <!-- it's disgusting but it will have to do -->
             &lt;div class="flex-item" style="order: 3;"&gt;flex item 2&lt;/div&gt;<br>
             &lt;div class="flex-item"&gt;flex item 3&lt;/div&gt;<br>
             &lt;/div&gt;<br>
@@ -175,13 +175,90 @@
         
         <div class="flex-container flex-wrap justify-content align-items">
             <div class="flex-item">flex item 1</div>
-            <div class="flex-item" style="order: 3;">flex item 2</div>
+            <div class="flex-item" style="order: 3">flex item 2</div> <!-- we're only gonna use this property once. creating a class for this is pretty unnecessary, so i'm using inline css here. mald -->
             <div class="flex-item">flex item 3</div>
         </div><br>
         
         (note: not every element in the container needs this property in order to work!)<br>
+        <br>
+        here's a more useful one: <code>flex-grow</code>. this specifies how much an individual item will grow lengthwise to fit the container.<br>
+        <br>
+        (default value is 0)<br>
+        <div class="codeblock">
+            &lt;div class="flex-container"&gt;<br>
+            &lt;div class="flex-item"&gt;flex item 1&lt;/div&gt;<br>
+            &lt;div class="flex-item"&gt;flex item 2&lt;/div&gt;<br>
+            &lt;div class="flex-item"  style="flex-grow: 1;"&gt;flex item 3&lt;/div&gt;<br>
+            &lt;/div&gt;<br>
+        </div><br>
+        <div class="flex-container flex-wrap justify-content align-items">
+            <div class="flex-item">flex item 1</div>
+            <div class="flex-item">flex item 2</div>
+            <div class="flex-item" style="flex-grow: 1;">flex item 3</div>
+        </div><br>
+        <br>
+        this works great for making certain elements stand out, or to just look nicer. likewise, there is a <code>flex-shrink</code> property which has the opposite effect.<br>
+        <br>
 
 
+        remember <code>align-items</code>? here's <code>align-self</code>, which applies to an individual item as opposed to every item in the container.<br>
+        otherwise, it functions exactly like <code>align-items</code>.
+        <br>
+        <div class="codeblock">
+            &lt;div class="flex-container"&gt;<br>
+            &lt;div class="flex-item"&gt;flex item 1&lt;/div&gt;<br>
+            &lt;div class="flex-item"&gt;flex item 2&lt;/div&gt;<br>
+            &lt;div class="flex-item"  style="align-self: stretch;"&gt;flex item 3&lt;/div&gt;<br>
+            &lt;/div&gt;<br>
+        </div><br>
+        <div class="flex-container flex-wrap justify-content align-items">
+            <div class="flex-item">flex item 1</div>
+            <div class="flex-item">flex item 2</div>
+            <div class="flex-item" style="align-self: stretch;">flex item 3</div>
+        </div><br>
+        <br>
+        now your layouts can be even more visually confusing and inconsistent! hooray!
+        <br>
+        <br>
+        <hr>
+        <br>
+        <h2>CONCLUSION</h2>
+        <p>flexboxes are a very powerful tool. they are used to quickly and easily create liquid, responsive design layouts. they provide ease of use, simplicity, and extra flexibility when designing a web page. 
+        using them correctly, they will never conflict with your existing css, and require such minimal setup to use that even a caveman could do it. 
+        with practically universal support, and amazing ease of integration, you're pretty much shooting yourself in the foot for not using them. try them out sooner or later.</p><br>
+        <br>
+        <hr>
+        <br>
+        <h2>WICKED SICK EXTRA CREDIT</h2>
+        not gonna spoil this :)
+        <br>
+        <!-- this portion has been hidden for the sake of not spoiling those i'm getting feedback from -->
+        <!-- the example on <a href="https://www.kuzmaclass.org/flex-box/" target="_blank">kuzmaclass.org</a> uses a special container id to produce the effect.
+        this takes a different approach, instead using an entirely new flex item class, which i think would end up being a bit more flexible, since it's not tied to the original class. also i'm not sure the original example uses transitions. but who cares, funny box go weee<br>
+        <br>
+        <div class="codeblock">
+            .flex-item-extra {<br>
+            background-color: #CCCCCC;<br>
+            margin: 0.25em;<br>
+            padding: 1em;<br>
+            font-size: 1.5em;<br>
+            flex-grow: 1;<br>
+            border: 0.2em solid black;<br>
+            transition: flex-grow 0.3s, background-color 0.3s, color 0.3s;<br>
+            }<br>
+            <br>
+            .flex-item-extra:hover {<br>
+            flex-grow: 5;<br>
+            background-color: #333333;<br>
+            color: #FFFFFF;<br>
+            }
+        </div><br>
+        <div class="flex-container flex-wrap justify-content align-items">
+            <div class="flex-item-extra">wow!!!</div>
+            <div class="flex-item-extra">they move!!!</div>
+            <div class="flex-item-extra">that's cool!!!</div>
+        </div><br> -->
 
+        <!-- alex wilhelm, 10/14/22. this code validates to html5-->
      </body>
 </html>
