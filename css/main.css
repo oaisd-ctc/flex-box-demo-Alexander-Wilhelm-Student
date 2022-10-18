@@ -1,0 +1,94 @@
+/* disclaimer: this is a bit of a mess */
+
+body {
+    text-align: center;
+    font-size: 1.25em;
+    line-height: 1.5em;
+}
+
+h1, h2 {
+    font-family: Garamond, serif;
+}
+
+
+summary {
+    text-decoration: underline;
+}
+
+div.extra {
+    background-color: #FFCCCC;
+    border: 3px solid black;
+}
+
+code { 
+font-family: Consolas, "Courier New", monospace;
+background-color: #DDDDDD;
+}
+
+.codeblock {
+    width: 60vw;
+    text-align: left;
+
+    margin: auto;
+    padding: 2em;
+
+    font-family: Consolas, "Courier New", monospace;
+    background-color: #DDDDDD;
+}
+
+
+.flex-container {
+    display: flex;
+    width: 70vw;
+    min-height: 40vh;
+    margin: auto;
+    padding: 2em;
+
+    background-color: #BBBBFF;
+    border: 3px solid black;
+
+    align-items: flex-start; /* just a little trolling */
+}
+
+
+
+.flex-item {
+    background-color: #CCCCCC;
+    margin: 1em;
+    padding: 1em;
+    font-size:1.5em;
+    border: 0.2em solid black;
+}
+
+.flex-item-extra { /* duplicate class used for the extra credit demo. we don't need a whole new container class, silly */
+    background-color: #CCCCCC;
+    margin: 0.25em; /* the flex items can have a little margin, as a treat. */
+    padding: 1em;
+    font-size: 1.5em;
+    flex-grow: 1;
+    border: 0.2em solid black;
+
+    transition: flex-grow 0.3s, background-color 0.3s, color 0.3s; /* le epic transition */
+}
+
+.flex-item-extra:hover { /* for reasons that are beyond my understanding the example on kuzmaclass "snaps back" when you unhover, but i believe it's because they don't use transitions. for some reason. idk why these are so much cooler and easier */
+    flex-grow: 5;
+    background-color: #333333;
+    color: #FFFFFF;
+}
+
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+
+.justify-content {
+    justify-content: center;
+}
+
+.align-items {
+    align-items: center;
+}
+
+/* alex wilhelm, 10/14/22. this code validates to css3. */
