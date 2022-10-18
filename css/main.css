@@ -1,3 +1,5 @@
+/* disclaimer: this is a bit of a mess */
+
 body {
     text-align: center;
     font-size: 1.25em;
@@ -6,6 +8,16 @@ body {
 
 h1, h2 {
     font-family: Garamond, serif;
+}
+
+
+summary {
+    text-decoration: underline;
+}
+
+div.extra {
+    background-color: #FFCCCC;
+    border: 3px solid black;
 }
 
 code { 
@@ -24,15 +36,21 @@ background-color: #DDDDDD;
     background-color: #DDDDDD;
 }
 
+
 .flex-container {
     display: flex;
     width: 70vw;
     min-height: 40vh;
     margin: auto;
     padding: 2em;
+
     background-color: #BBBBFF;
-    align-items: flex-start;
+    border: 3px solid black;
+
+    align-items: flex-start; /* just a little trolling */
 }
+
+
 
 .flex-item {
     background-color: #CCCCCC;
@@ -63,6 +81,7 @@ background-color: #DDDDDD;
 .flex-wrap {
     flex-wrap: wrap;
 }
+
 
 .justify-content {
     justify-content: center;

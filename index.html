@@ -90,13 +90,25 @@
             }
         </div>
         <br>
-        (<code>flex-wrap</code> also supports the value <code>wrap-reverse</code>, which puts the wrapped items above the others as opposed to below)<br>
-        <br>
         <div class="flex-container flex-wrap">
             <div class="flex-item">flex item 1</div>
             <div class="flex-item">flex item 2</div>
             <div class="flex-item">flex item 3</div>
         </div><br>
+
+        <details><summary>more about <code>flex-wrap</code></summary>
+        <div class="extra">
+            <code>flex-wrap</code> also supports the value <code>wrap-reverse</code>, which puts the wrapped items above the others as opposed to below.<br>
+            note the items moving to the bottom of the container, which can be rectified with <code>align-items</code> as described below.
+            <h3><code>flex-wrap: wrap-reverse;</code></h3>
+            <div class="flex-container" style="flex-wrap: wrap-reverse;"> <!-- we're only gonna use this property-value pair once. creating a class for this is pretty unnecessary, so i'm using inline css here. mald -->
+                <div class="flex-item">flex item 1</div>
+                <div class="flex-item">flex item 2</div>
+                <div class="flex-item">flex item 3</div>
+            </div><br>
+            </div>
+        </details>
+
         <br>
         <p>now, when the container is too small to fit the whole row, the container will grow and the items will wrap around to fit. good stuff.<br>
         let's try tackling that item alignment using <code>justify-content</code>. by default, this is set to <code>flex-start</code>. let's change it to <code>center</code> and see what happens.<p>
@@ -115,14 +127,44 @@
             }
         </div>
         <br>
-        (other values for <code>justify-content</code> not demonstrated: <code>flex-end</code>, <code>space-around</code>, <code>space-between</code>)<br>
+        
         <br>
         <div class="flex-container flex-wrap justify-content">
             <div class="flex-item">flex item 1</div>
             <div class="flex-item">flex item 2</div>
             <div class="flex-item">flex item 3</div>
         </div><br>
+        <details><summary>more about <code>justify-content</code></summary>
+            <div class="extra">
+                <code>justify-content</code> additionally supports the values <code>flex-end</code>, <code>space-around</code>, and <code>space-between</code>.<br>
+                <h3><code>justify-content: flex-end;</code></h3>
+                this value orients the items towards the end of the container.
+                <div class="flex-container flex-wrap" style="justify-content: flex-end;">
+                    <div class="flex-item">flex item 1</div>
+                    <div class="flex-item">flex item 2</div>
+                    <div class="flex-item">flex item 3</div>
+                </div><br>
 
+                <h3><code>justify-content: space-around;</code></h3>
+                this value acts like <code>center</code>, but places space between the items in addition to before and after.<br>
+                notice that any wrapped items are centered.
+                <div class="flex-container flex-wrap" style="justify-content: space-around;">
+                    <div class="flex-item">flex item 1</div>
+                    <div class="flex-item">flex item 2</div>
+                    <div class="flex-item">flex item 3</div>
+                </div><br>
+
+                <h3><code>justify-content: space-between;</code></h3>
+                this is similar to <code>space-around</code>, but <em>only</em> puts space between the elements, not before or after.<br>
+                notice that wrapped items are <em>not</em> centered.
+                <div class="flex-container flex-wrap" style="justify-content: space-between;">
+                    <div class="flex-item">flex item 1</div>
+                    <div class="flex-item">flex item 2</div>
+                    <div class="flex-item">flex item 3</div>
+                </div><br>
+                </div>
+            </details>
+            <br>
         <p>nice and centered. beautiful. but only horizontally. what if we want them to be centered vertically as well, because we're insane?<br>
         have no fear! we also have <code>align-items</code> at our disposal. by default, this is set to <code>stretch</code>, which stretches out the items to fit the container, like so:</p>
         (you may have noticed that the earlier demonstrations don't act like this. i've secretly been hiding an <code>align-items: flex-start;</code> property from you this whole time, which prevents the content from stretching, like you see here.)<br>
@@ -135,7 +177,7 @@
 
         <p>this doesn't look great, which is why we have an <code>align-items: flex-start;</code> property on the above demonstrations.<br>
         however, we can also set it to <code>flex-start</code>, <code>flex-end</code>, or for our purposes, <code>center</code>.</p><br>
-
+            
         <div class="codeblock">
             .flex-container {<br>
                 display: flex;<br>
@@ -156,6 +198,26 @@
             <div class="flex-item">flex item 2</div>
             <div class="flex-item">flex item 3</div>
         </div><br>
+        <details><summary>more about <code>align-items</code></summary>
+            <div class="extra">
+                here's a demonstration of the <code>flex-end</code> value.
+                <h3><code>align-items: flex-end;</code></h3>
+                <div class="flex-container flex-wrap justify-content" style="align-items: flex-end;">
+                    <div class="flex-item">flex item 1</div>
+                    <div class="flex-item">flex item 2</div>
+                    <div class="flex-item">flex item 3</div>
+                </div><br>
+                <br>
+                <code>align-items</code> also supports the value <code>baseline</code>, which aligns the elements based on the text baseline.
+                <h3><code>align-items: baseline;</code></h3>
+                <div class="flex-container flex-wrap justify-content" style="align-items: baseline;">
+                    <div class="flex-item" style="font-size: 2.5em;">flex item 1</div>
+                    <div class="flex-item">flex item 2</div>
+                    <div class="flex-item" style="font-size: .75em;">flex item 3</div>
+                </div><br>
+                see how the bottom of the text in the items are all lined up? nifty.
+            </div>
+            </details>
         <p>behold! easy vertical alignment, while still being responsive and liquid in nature! bask in its glory! <em>this</em> is how you center a div.</p>
         <br>
         <hr>
@@ -176,7 +238,7 @@
         
         <div class="flex-container flex-wrap justify-content align-items">
             <div class="flex-item">flex item 1</div>
-            <div class="flex-item" style="order: 3">flex item 2</div> <!-- we're only gonna use this property once. creating a class for this is pretty unnecessary, so i'm using inline css here. mald -->
+            <div class="flex-item" style="order: 3">flex item 2</div> 
             <div class="flex-item">flex item 3</div>
         </div><br>
         
@@ -203,7 +265,7 @@
 
 
         remember <code>align-items</code>? here's <code>align-self</code>, which applies to an individual item as opposed to every item in the container.<br>
-        otherwise, it functions exactly like <code>align-items</code>.
+        this value overrides the <code>align-items</code> value of the container. otherwise, it functions exactly like <code>align-items</code>.
         <br>
         <div class="codeblock">
             &lt;div class="flex-container"&gt;<br>
